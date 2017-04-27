@@ -1,6 +1,5 @@
 class Spaceship {
   constructor(name, crew_array, phasers, shields) {
-    var me = this
     this.name = name
     this.phasers = phasers
     this.shields = shields
@@ -10,8 +9,8 @@ class Spaceship {
     this.crew_array = crew_array
     if (crew_array.length !== 0) {
       crew_array.forEach(function(crewMember){
-        return crewMember.currentShip = me
-      })
+        return crewMember.currentShip = this
+      }, this)
       this.docked = false
     } else {this.docked = true}
   }
